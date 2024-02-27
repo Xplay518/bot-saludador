@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bot Saludador</title>
+</head>
+<body>
+    <h1>¡Bienvenido al Bot Saludador!</h1>
+    <div id="saludo-div"></div>
+
+    <script type="module">
+        import saludar from "./src/saludador.js";
+        const saludoDiv = document.getElementById("saludo-div");
+        saludoDiv.innerText = saludar();
+    </script>
+</body>
+</html>
