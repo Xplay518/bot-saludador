@@ -7,12 +7,29 @@
 </head>
 <body>
     <h1>¡Bienvenido al Bot Saludador!</h1>
+    
+    <div>
+        <form id="saludo-form">
+            <label for="nombre">Ingresa tu nombre:</label>
+            <input type="text" id="nombre" required>
+            <button type="submit">Saludar</button>
+        </form>
+    </div>
+
     <div id="saludo-div"></div>
 
     <script type="module">
         import saludar from "./src/saludador.js";
+
+        const saludoForm = document.getElementById("saludo-form");
+        const nombreInput = document.getElementById("nombre");
         const saludoDiv = document.getElementById("saludo-div");
-        saludoDiv.innerText = saludar();
+
+        saludoForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+            const nombre = nombreInput.value;
+            saludoDiv.innerText = saludar(nombre);
+        });
     </script>
 </body>
 </html>
