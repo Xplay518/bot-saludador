@@ -1,15 +1,15 @@
-import sumar from "./saludador";
+import saludar from "./saludador.js";
 
-const first = document.querySelector("#primer-numero");
-const second = document.querySelector("#segundo-numero");
-const form = document.querySelector("#sumar-form");
-const div = document.querySelector("#resultado-div");
+const saludoForm = document.getElementById("saludo-form");
+const nombreInput = document.getElementById("nombre");
+const edadInput = document.getElementById("edad");
+const generoSelect = document.getElementById("genero");
+const saludoDiv = document.getElementById("saludo-div");
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-
-  const firstNumber = Number.parseInt(first.value);
-  const secondNumber = Number.parseInt(second.value);
-
-  div.innerHTML = "<p>" + sumar(firstNumber, secondNumber) + "</p>";
+saludoForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+    const nombre = nombreInput.value;
+    const edad = parseInt(edadInput.value);
+    const genero = generoSelect.value;
+    saludoDiv.innerText = saludar(nombre, genero, edad);
 });
